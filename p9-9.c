@@ -6,12 +6,13 @@ void rev_string(char s[]){...}
 #include <string.h>
 
 void rev_string(char s[]){
-    char temp[strlen(s)];
-    for (int i = 0; i < strlen(s); i++){
-        temp[i] = s[strlen(s) - 1 - i];
+    char temp[1];
+    for (int i = 0; i < (strlen(s) - 1) / 2; i++){
+        temp[0] = *(s + i);
+        *(s + i) = *(s + strlen(s) - 1 - i);
+        *(s + strlen(s) - 1 - i) = temp[0];
     }
-    temp[strlen(s)] = *"\0";
-    *s = *temp;
+
 }
 
 int main(void){
